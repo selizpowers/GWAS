@@ -1,0 +1,134 @@
+#!/bin/bash
+#PBS -N filtchr1
+#PBS -l select=1:ncpus=8:mem=100gb:interconnect=1g,walltime=48:00:00
+#PBS -o filtchr1.out
+#PBS -e filtchr1.err
+
+cd /scratch2/spower2/scripts/v2scripts
+
+
+java -jar /scratch2/spower2/scripts/v2scripts/gatk-4.1.9.0/gatk-package-4.1.9.0-local.jar VariantFiltration \
+	-O chr2.hard_filtered.vcf \
+	-V chr2.imputed.vcf.gz \
+#	-L chr1LG6:1-372165146 \
+    --filter-name "QD2" \
+    --filter-expression "QD < 2.0" \
+    --filter-name "F-NEG" \
+    --filter-expression "InbreedingCoeff < 0.0" \
+    --filter-name "QUAL30" \
+    --filter-expression "QUAL < 30.0" \
+    --filter-name "SOR3" \
+    --filter-expression "SOR > 3.0" \
+    --filter-name "FS60" \
+    --filter-expression "FS > 60.0" \
+    --filter-name "MQ40" \
+    --filter-expression "MQ < 40.0" \
+    --filter-name "MQRankSum-12.5" \
+    --filter-expression "MQRankSum < -12.5" \
+    --filter-name "ReadPosRankSum-8" \
+    --filter-expression "ReadPosRankSum < -8.0" \
+
+java -jar /scratch2/spower2/scripts/v2scripts/gatk-4.1.9.0/gatk-package-4.1.9.0-local.jar VariantFiltration \
+        -O chr3.hard_filtered.vcf \
+        -V chr3.imputed.vcf.gz \
+#       -L chr1LG6:1-372165146 \
+    --filter-name "QD2" \
+    --filter-expression "QD < 2.0" \
+    --filter-name "F-NEG" \
+    --filter-expression "InbreedingCoeff < 0.0" \
+    --filter-name "QUAL30" \
+    --filter-expression "QUAL < 30.0" \
+    --filter-name "SOR3" \
+    --filter-expression "SOR > 3.0" \
+    --filter-name "FS60" \
+    --filter-expression "FS > 60.0" \
+    --filter-name "MQ40" \
+    --filter-expression "MQ < 40.0" \
+    --filter-name "MQRankSum-12.5" \
+    --filter-expression "MQRankSum < -12.5" \
+    --filter-name "ReadPosRankSum-8" \
+    --filter-expression "ReadPosRankSum < -8.0" \
+
+java -jar /scratch2/spower2/scripts/v2scripts/gatk-4.1.9.0/gatk-package-4.1.9.0-local.jar VariantFiltration \
+        -O chr4.hard_filtered.vcf \
+        -V chr4.imputed.vcf.gz \
+#       -L chr1LG6:1-372165146 \
+    --filter-name "QD2" \
+    --filter-expression "QD < 2.0" \
+    --filter-name "F-NEG" \
+    --filter-expression "InbreedingCoeff < 0.0" \
+    --filter-name "QUAL30" \
+    --filter-expression "QUAL < 30.0" \
+    --filter-name "SOR3" \
+    --filter-expression "SOR > 3.0" \
+    --filter-name "FS60" \
+    --filter-expression "FS > 60.0" \
+    --filter-name "MQ40" \
+    --filter-expression "MQ < 40.0" \
+    --filter-name "MQRankSum-12.5" \
+    --filter-expression "MQRankSum < -12.5" \
+    --filter-name "ReadPosRankSum-8" \
+    --filter-expression "ReadPosRankSum < -8.0" \
+
+java -jar /scratch2/spower2/scripts/v2scripts/gatk-4.1.9.0/gatk-package-4.1.9.0-local.jar VariantFiltration \
+        -O chr5.hard_filtered.vcf \
+        -V chr5.imputed.vcf.gz \
+#       -L chr1LG6:1-372165146 \
+    --filter-name "QD2" \
+    --filter-expression "QD < 2.0" \
+    --filter-name "F-NEG" \
+    --filter-expression "InbreedingCoeff < 0.0" \
+    --filter-name "QUAL30" \
+    --filter-expression "QUAL < 30.0" \
+    --filter-name "SOR3" \
+    --filter-expression "SOR > 3.0" \
+    --filter-name "FS60" \
+    --filter-expression "FS > 60.0" \
+    --filter-name "MQ40" \
+    --filter-expression "MQ < 40.0" \
+    --filter-name "MQRankSum-12.5" \
+    --filter-expression "MQRankSum < -12.5" \
+    --filter-name "ReadPosRankSum-8" \
+    --filter-expression "ReadPosRankSum < -8.0" \
+
+java -jar /scratch2/spower2/scripts/v2scripts/gatk-4.1.9.0/gatk-package-4.1.9.0-local.jar VariantFiltration \
+        -O chr6.hard_filtered.vcf \
+        -V chr6.imputed.vcf.gz \
+#       -L chr1LG6:1-372165146 \
+    --filter-name "QD2" \
+    --filter-expression "QD < 2.0" \
+    --filter-name "F-NEG" \
+    --filter-expression "InbreedingCoeff < 0.0" \
+    --filter-name "QUAL30" \
+    --filter-expression "QUAL < 30.0" \
+    --filter-name "SOR3" \
+    --filter-expression "SOR > 3.0" \
+    --filter-name "FS60" \
+    --filter-expression "FS > 60.0" \
+    --filter-name "MQ40" \
+    --filter-expression "MQ < 40.0" \
+    --filter-name "MQRankSum-12.5" \
+    --filter-expression "MQRankSum < -12.5" \
+    --filter-name "ReadPosRankSum-8" \
+    --filter-expression "ReadPosRankSum < -8.0" \
+
+java -jar /scratch2/spower2/scripts/v2scripts/gatk-4.1.9.0/gatk-package-4.1.9.0-local.jar VariantFiltration \
+        -O chr7.hard_filtered.vcf \
+        -V chr7.imputed.vcf.gz \
+#       -L chr1LG6:1-372165146 \
+    --filter-name "QD2" \
+    --filter-expression "QD < 2.0" \
+    --filter-name "F-NEG" \
+    --filter-expression "InbreedingCoeff < 0.0" \
+    --filter-name "QUAL30" \
+    --filter-expression "QUAL < 30.0" \
+    --filter-name "SOR3" \
+    --filter-expression "SOR > 3.0" \
+    --filter-name "FS60" \
+    --filter-expression "FS > 60.0" \
+    --filter-name "MQ40" \
+    --filter-expression "MQ < 40.0" \
+    --filter-name "MQRankSum-12.5" \
+    --filter-expression "MQRankSum < -12.5" \
+    --filter-name "ReadPosRankSum-8" \
+    --filter-expression "ReadPosRankSum < -8.0" \

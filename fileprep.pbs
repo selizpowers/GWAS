@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -N firstadmix
+#PBS -l select=1:ncpus=4:mem=20gb:interconnect=1g,walltime=4:00:00
+#PBS -o admix.out
+#PBS -e admix.err
+cd /scratch2/spower2/scripts/v2scripts/ADMIXTURE
+
+
+
+./plink --vcf clean.final.renamed.vcf --make-bed --out admix_pop --allow-extra-chr
+
+awk '{$1=0;print $0}' $FILE.bim > $FILE.bim.tmp
+mv $FILE.bim.tmp $FILE.bim

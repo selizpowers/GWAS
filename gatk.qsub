@@ -1,0 +1,33 @@
+#!/bin/bash
+#PBS -N gvcf_<NUMBER>
+#PBS -l select=1:ncpus=8:mem=200gb:interconnect=1g,walltime=48:00:00
+#PBS -o gvcf_<NUMBER>.out
+#PBS -e gvcf_<NUMBER>.err
+
+module add anaconda3/5.1.0-gcc/8.3.1
+BASE_DIR="/scratch2/spower2/scripts/v2scripts/BamFiles"
+cd $BASE_DIR
+OUTPUT_DIR="/scratch2/spower2/scripts/v2scripts/BamFiles"
+#NUM_CPUS=8
+#GENOME="Pisum_sativum_v1a.fa"
+
+DESIGN_FILE="newIDinfo.csv"
+DESIGN=$(cat ${DESIGN_FILE} | head -n <NUMBER> | tail -n 1)
+
+IFS=',' read -ra ARRAY <<< "${DESIGN}"
+
+# RG_SAMPLE_CODE=${ARRAY[0]}
+#FILE_NAME=${ARRAY[0]}
+SAMPLE=${ARRAY[1]}
+
+#R1="${SAMPLE}.trim.fq"
+#R2="${BASE_DIR}/results/fastp/${SAMPLE}.R2.trimmed.paired.fq.gz"
+
+if [ ! -e ${OUTPUT_DIR} ]
+then
+    mkdir -p ${OUTPUT_DIR}
+fi
+
+module load r/4.0.2-gcc/8.3.1
+
+java -jar /scratch2/spower2/scripts/v2scripts/gatk-4.1.9.0/gatk-package-4.1.9.0-local.jar HaplotypeCaller -R Pisum_sativum_v1a.fa -ploidy 2 -I ${SAMPLE}.sort.bam -O ${SAMPLE}.g.vcf -ERC GVCF

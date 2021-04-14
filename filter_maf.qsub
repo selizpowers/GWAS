@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -N maf
+#PBS -l select=1:ncpus=8:mem=50gb:interconnect=1g,walltime=1:00:00
+#PBS -o maf.out
+#PBS -e maf.err
+
+cd /scratch2/spower2/scripts/v2scripts
+
+bcftools view -q 0.05:minor final.renamed.vcf > clean.final.renamed.vcf

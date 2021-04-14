@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -N admix
+#PBS -l select=1:ncpus=4:mem=100gb:interconnect=1g,walltime=14:00:00
+#PBS -o admix.out
+#PBS -e admix.err
+
+cd /scratch2/spower2/scripts/v2scripts/ADMIXTURE
+
+
+for i in {2..10}
+do
+admixture --cv admix_pop.bed $i > log${i}.out
+done

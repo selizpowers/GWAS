@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -N beagle234567
+#PBS -l select=1:ncpus=8:mem=100gb:interconnect=1g,walltime=48:00:00
+#PBS -o beagle2.out
+#PBS -e beagle2.err
+
+cd /scratch2/spower2/scripts/v2scripts
+
+java -jar -Xmx300g /home/spower2/beagle.18May20.d20.jar gt=chr2.vcf out=chr2.imputed window=20 nthreads=32
+
+java -jar /scratch2/spower2/scripts/v2scripts/gatk-4.1.9.0/gatk-package-4.1.9.0-local.jar IndexFeatureFile -I chr2.imputed.vcf.gz
+#java -jar -Xmx300g /home/spower2/beagle.18May20.d20.jar gt=chr3.vcf out=chr3.imputed window=20 nthreads=32
+
+#java -jar -Xmx300g /home/spower2/beagle.18May20.d20.jar gt=chr4.vcf out=chr4.imputed window=20 nthreads=32
+
+#java -jar -Xmx300g /home/spower2/beagle.18May20.d20.jar gt=chr5.vcf out=chr5.imputed window=20 nthreads=32
+
+#java -jar -Xmx300g /home/spower2/beagle.18May20.d20.jar gt=chr6.vcf out=chr6.imputed window=20 nthreads=32
+
+#java -jar -Xmx300g /home/spower2/beagle.18May20.d20.jar gt=chr7.vcf out=chr7.imputed window=20 nthreads=32

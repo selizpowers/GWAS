@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -N bcftools
+#PBS -l select=1:ncpus=8:mem=200gb:interconnect=1g,walltime=48:00:00
+#PBS -o bcf.out
+#PBS -e bcf.err
+
+cd /scratch2/spower2/scripts/v2scripts
+
+#bgzip -c chr1.hard_filtered.vcf > chr1.hard_filtered.vcf.gz
+#bcftools index --tbi --threads 16 -f chr1.hard_filtered.vcf.gz
+
+for i in {2..7} do
+
+
+bcftools view --types snps --min-alleles 2 --max-alleles 2 --threads 16 -O z -f .,PASS chr$i.hard_filtered.vcf  > chr$i.final.vcf.gz
+
+done
