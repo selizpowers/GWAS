@@ -7,11 +7,5 @@
 cd /scratch2/spower2/scripts/v2scripts/MAF_filtered
 
 source activate r_env
-# PHENOTYPE="yield"
-# mkdir $PHENOTYPE
-# cd $PHENOTYPE
-# ln -s ../${PHENOTYPE}.csv
-# ln -s ../Lentil.knn_impute.scaffold_filtered.hmp.txt
-# cp gapit.R ./$PHENOTYPE # edit accordingly
 
 Rscript gapit.AllPheno.R
