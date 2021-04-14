@@ -1,0 +1,6 @@
+library(ggplot2)
+library(RColorBrewer)
+data <- read.csv("GAPIT.PCA.csv")
+my_graph <- ggplot(data, aes(x=PC1, y=PC2), color=Species) + geom_point(aes(color=Species)) + scale_color_brewer(palette="Set1")
+my_graph + labs(x = as.character("PC1 14.08%"), y = as.character("PC2 6.91%"))
+ggsave("my_graph.jpg", dpi = 300)
