@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+#command used in GWAS: python features_from_snps.py --input GAPIT.MLM.Fe.GWAS.Results.csv --input_type gapit --output Iron_genes --gff Pisum_sativum_v1a_genes.db --distance 90 --fdr 0.05 --feature_type gene
 
 """
 By J. Lucas Boatwright 
