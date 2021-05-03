@@ -4,12 +4,11 @@
 #PBS -o bcf.out
 #PBS -e bcf.err
 
-cd /scratch2/spower2/scripts/v2scripts
 
 #bgzip -c chr1.hard_filtered.vcf > chr1.hard_filtered.vcf.gz
 #bcftools index --tbi --threads 16 -f chr1.hard_filtered.vcf.gz
 
-for i in {2..7} do
+for i in {1..7} do
 
 
 bcftools view --types snps --min-alleles 2 --max-alleles 2 -i 'F_MISSING<0.7' --threads 16 -O z -f .,PASS chr$i.hard_filtered.vcf  > chr$i.raw.vcf.gz
