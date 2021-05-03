@@ -4,10 +4,12 @@
 #PBS -o admix.out
 #PBS -e admix.err
 
-cd /scratch2/spower2/scripts/v2scripts/ADMIXTURE
 
 
-for i in {2..10}
+
+for i in {2..15}
 do
 admixture --cv admix_pop.bed $i > log${i}.out
 done
+
+grep -h CV log*.out #log file with lowest CV corresponds to K
