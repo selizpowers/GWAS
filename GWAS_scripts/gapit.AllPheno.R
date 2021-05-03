@@ -5,7 +5,7 @@ source("http://www.zzlab.net/GAPIT/gapit_functions.txt")
 
 
 myY <- read.csv("GAPIT_pheno.csv", head=T)           
-myG <- read.delim("clean.final.renamed.hapmap.hmp.txt", head = FALSE)
+myG <- read.delim(".hmp.txt", head = FALSE)
 #myCV <- read.table("pca.IBD.txt", head=TRUE)
 myGAPIT <- GAPIT(
                  Y=myY,
@@ -13,7 +13,8 @@ myGAPIT <- GAPIT(
 		 Model.selection=T,
                  kinship.cluster=c("average"),
 		 kinship.group=c("Mean"),
-		 model=c("MLM"),
+		 SNP.MAF = 0.05,
+		 model=c("MLM", "Blink", "CMLM", "MLMM"),
                  ncpus=4
                  )
 
