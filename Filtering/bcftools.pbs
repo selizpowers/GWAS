@@ -12,6 +12,6 @@ cd /scratch2/spower2/scripts/v2scripts
 for i in {2..7} do
 
 
-bcftools view --types snps --min-alleles 2 --max-alleles 2 --threads 16 -O z -f .,PASS chr$i.hard_filtered.vcf  > chr$i.final.vcf.gz
+bcftools view --types snps --min-alleles 2 --max-alleles 2 -i 'F_MISSING<0.7' --threads 16 -O z -f .,PASS chr$i.hard_filtered.vcf  > chr$i.raw.vcf.gz
 
 done
