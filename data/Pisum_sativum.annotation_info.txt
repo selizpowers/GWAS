@@ -1,1 +1,0 @@
-#pacId	locusName	transcriptName	peptideName	Pfam	Panther	KOG	ec	KO	GO	Best-hit-arabi-name	arabi-symbol	arabi-defline	Best-hit-rice-name	rice-symbol	rice-defline
