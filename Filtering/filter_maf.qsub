@@ -4,6 +4,6 @@
 #PBS -o maf.out
 #PBS -e maf.err
 
-cd /scratch2/spower2/scripts/v2scripts
 
-bcftools view -q 0.05:minor final.renamed.vcf > clean.final.renamed.vcf
+
+bcftools view -q 0.05:minor .vcf > .maf.vcf
